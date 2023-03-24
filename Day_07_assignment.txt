@@ -1,0 +1,91 @@
+1. Write a program in the following steps
+a. Generates 10 Random 3 Digit number.
+b. Store this random numbers into a array.
+c. Then find the 2nd largest and the 2nd smallest element without sorting the array.
+=>
+
+MAXCOUNT=10
+count=1
+
+while [ "$count" -le $MAXCOUNT ]; do
+ number[$count]=$(( $RANDOM % 999 + 100 ))
+
+
+echo "${number[*]}"
+
+
+        biggest=${number[0]}
+        smallest=${number[0]}
+
+for i in ${number[@]}
+do
+     if [[ $i -gt $biggest ]]
+     then
+        biggest="$i"
+     fi
+
+ if [[ $i -lt $smallest ]]
+     then
+        smallest="$i"
+     fi
+done
+
+echo "The largest number is $biggest"
+echo "The smallest number is $smallest"
+
+
+ let "count += 1"
+done
+
+
+for i in ${number[@]}
+do
+     if [[ $i -gt $biggest ]]
+     then
+        biggest="$i"
+
+ fi
+
+     if [[ $i -lt $smallest ]]
+     then
+        smallest="$i"
+     fi
+
+echo "The second largest number is $biggest"
+echo "The second smallest number is $smallest"
+
+O/P :-
+
+$ bash 10RanomArray.sh
+343
+The largest number is 343
+The smallest number is
+343 677
+The largest number is 677
+The smallest number is
+343 677 572
+The largest number is 677
+The smallest number is
+343 677 572 252
+The largest number is 677
+The smallest number is
+343 677 572 252 585
+The largest number is 677
+The smallest number is
+343 677 572 252 585 997
+The largest number is 997
+The smallest number is
+343 677 572 252 585 997 541
+The largest number is 997
+The smallest number is
+343 677 572 252 585 997 541 1025
+The largest number is 1025
+The smallest number is
+343 677 572 252 585 997 541 1025 942
+The largest number is 1025
+The smallest number is
+343 677 572 252 585 997 541 1025 942 562
+The largest number is 1025
+The smallest number is
+10RanomArray.sh: line 49: syntax error: unexpected end of file
+
